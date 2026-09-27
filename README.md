@@ -151,17 +151,18 @@ Ecommerce-demand-prediction/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-
-How to Run Locally
+```
+## How to Run Locally
 
 ```bash
 git clone https://github.com/imrozakram/ecommerce-demand-prediction
 cd ecommerce-demand-prediction
 pip install -r requirements.txt
 streamlit run app.py
+```
+## Project Workflow
 
-Project Workflow
-
+```text
 Raw E-commerce Order Data
         ↓
 Data Cleaning & Preprocessing
@@ -191,8 +192,10 @@ Safety Stock Calculation
 Inventory Alert & Reorder Recommendation
         ↓
 Streamlit Dashboard
+```
 
-Limitations
+## Limitations
+
 - The dataset contains relatively sparse SKU-level demand.
 - Many SKUs have weeks with zero demand.
 - The dataset cannot always distinguish between genuine zero demand and temporary stock unavailability.
@@ -202,8 +205,12 @@ Limitations
 - The project currently uses a fixed historical dataset rather than a live marketplace API.
 - Forecasting performance depends on the amount and quality of historical data available.
 
-Future Improvements
+---
+
+## Future Improvements
+
 Possible improvements include:
+
 - Integration with live marketplace APIs
 - Automatic inventory synchronization
 - Inclusion of product pricing and discount information
@@ -213,6 +220,10 @@ Possible improvements include:
 - Seasonal and festival-related features
 - Automated periodic model retraining
 
-Author
-Md Imroz Akram
+---
+
+## Author
+
+**Md Imroz Akram**
+
 B.Tech — Artificial Intelligence & Machine Learning
