@@ -4,7 +4,7 @@ A machine learning based application that predicts one-week-ahead SKU-level prod
 
 ## Live Demo
 
-[Open the deployed Streamlit application](https://github.com/imrozakram/ecommerce-demand-prediction/blob/main/README.md)
+[Open the deployed Streamlit application](https://ecommerce-demand-prediction-fli.streamlit.app/)
 
 ## Project Overview
 
@@ -201,7 +201,7 @@ Streamlit Dashboard
 - The dataset cannot always distinguish between genuine zero demand and temporary stock unavailability.
 - Pricing changes are not currently included as model features.
 - Advertising and promotional activity are not included.
-- Marketplace events and external seasonal factors are not explicitly modeled.
+- Marketplace events and external seasonal factors are not explicitly modgeled.
 - The project currently uses a fixed historical dataset rather than a live marketplace API.
 - Forecasting performance depends on the amount and quality of historical data available.
 
