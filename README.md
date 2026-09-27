@@ -4,7 +4,7 @@ A machine learning based application that predicts one-week-ahead SKU-level prod
 
 ## Live Demo
 
-Streamlit deployment link will be added here after deployment.
+[Open the deployed Streamlit application](https://github.com/imrozakram/ecommerce-demand-prediction/blob/main/README.md)
 
 ## Project Overview
 
@@ -65,6 +65,14 @@ The forecasting models use historical demand features:
 
 These features allow the model to learn from recent sales patterns while preventing future information from leaking into training.
 
+## Train-Test Strategy
+
+Because this is a time-dependent forecasting problem, the dataset was **not randomly shuffled**.
+
+The latest four complete weeks were kept as unseen test data, while all earlier weeks were used for training.
+
+This chronological split better represents a real forecasting scenario where past data is used to predict future demand.
+
 ## Models
 
 Two regression models were evaluated:
@@ -102,6 +110,16 @@ Inventory is classified into three categories:
 
 The application also calculates the recommended reorder quantity.
 
+## Forecast Horizon
+
+The deployed application performs a:
+
+**1 Week Ahead Forecast**
+
+Forecasts are generated one week ahead from the latest complete week available in the historical dataset.
+
+The application is not connected to a live marketplace API, so it uses the processed historical dataset included in the project.
+
 ## Tech Stack
 
 - Python
@@ -133,3 +151,68 @@ Ecommerce-demand-prediction/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+
+How to Run Locally
+
+```bash
+git clone https://github.com/imrozakram/ecommerce-demand-prediction
+cd ecommerce-demand-prediction
+pip install -r requirements.txt
+streamlit run app.py
+
+Project Workflow
+
+Raw E-commerce Order Data
+        ↓
+Data Cleaning & Preprocessing
+        ↓
+Weekly SKU-Level Demand
+        ↓
+Zero-Demand Week Handling
+        ↓
+Feature Engineering
+        ↓
+Chronological Train-Test Split
+        ↓
+Linear Regression
+        ↓
+Random Forest Regressor
+        ↓
+Model Evaluation
+        ↓
+Random Forest Selected
+        ↓
+One-Week-Ahead Demand Forecast
+        ↓
+Current Inventory Input
+        ↓
+Safety Stock Calculation
+        ↓
+Inventory Alert & Reorder Recommendation
+        ↓
+Streamlit Dashboard
+
+Limitations
+- The dataset contains relatively sparse SKU-level demand.
+- Many SKUs have weeks with zero demand.
+- The dataset cannot always distinguish between genuine zero demand and temporary stock unavailability.
+- Pricing changes are not currently included as model features.
+- Advertising and promotional activity are not included.
+- Marketplace events and external seasonal factors are not explicitly modeled.
+- The project currently uses a fixed historical dataset rather than a live marketplace API.
+- Forecasting performance depends on the amount and quality of historical data available.
+
+Future Improvements
+Possible improvements include:
+- Integration with live marketplace APIs
+- Automatic inventory synchronization
+- Inclusion of product pricing and discount information
+- Advertising and promotional features
+- Longer historical sales data
+- Product-category-level forecasting
+- Seasonal and festival-related features
+- Automated periodic model retraining
+
+Author
+Md Imroz Akram
+B.Tech — Artificial Intelligence & Machine Learning
